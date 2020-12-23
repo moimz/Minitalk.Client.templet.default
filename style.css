@@ -16,7 +16,7 @@ div[data-role=frame] {border:1px solid #10b8c3; background:#fff;}
  * 헤더
  */
 header {background:#10b8c3; height:40px; color:#fff;}
-header > h1 {display:inline-block; color:#fff; font-weight:bold; font-size:12px; height:40px; line-height:40px; vertical-align:middle; padding:0px 10px 0px 40px; background:url(./images/icon.png) no-repeat 10px 50%; background-size:20px 20px;}
+header > h1 {display:inline-block; color:#fff; font-weight:bold; font-size:12px; height:40px; line-height:40px; vertical-align:middle; padding:0px 10px 0px 40px; background:url(./images/icon.png) no-repeat 10px 50%; background-size:20px 20px; max-width:calc(100% - 80px);}
 header > label[data-role=count] {display:inline-block; font-weight:normal; font-size:12px; height:40px; line-height:40px; vertical-align:middle; margin-left:-10px; padding-right:10px;}
 header > label[data-role=count]:before {content:"(";}
 header > label[data-role=count]:after {content:")";}
@@ -121,24 +121,28 @@ div[data-role=frame][data-tab-type=vertical] main > section[data-tab=chat] {}
  * 푸터
  */
 footer {min-height:34px; font-size:0; bottom:0; left:0; background:#fff; border-top:1px solid #d8d8d9;} /* 푸터는 채팅메시지 입력에 따라 높이가 가변이므로, 최소높이(기본높이)를 설정한다. */
+
+/**
+ * 프로그래스바
+ */
 footer > div[data-role=progress] {position:absolute; top:-6px; left:0; width:100%; height:5px; background:#f4f4f4; z-index:10;}
 footer > div[data-role=progress] > div {height:5px; background:#F44336;}
+
+/**
+ * 툴바
+ */
 footer > ul[data-role=tools] {display:inline-block; width:34px; height:34px; vertical-align:bottom;}
 footer > ul[data-role=tools] > li {width:34px;}
 footer > ul[data-role=tools] > li > button {width:24px; height:24px; margin:5px; font-size:12px; background:#fff; color:#666; border:1px solid #d8d8d9; cursor:pointer; border-radius:3px;}
 footer > ul[data-role=tools] > li > button:hover {background:#f4f4f4; color:#222;}
-footer > ul[data-role=tools] > li > button > i {width:30px; height:30px;}
+footer > ul[data-role=tools] > li > button > i {width:22px; height:22px; font-size:12px; line-height:22px;}
 footer > ul[data-role=tools] > li > button > span {display:none;}
 footer > ul[data-role=tools] > li > button[data-tool=more] > i.icon:before {content:"\eb00";}
 footer.open > ul[data-role=tools] > li > button[data-tool=more] {border-color:#10b8c3; background:#10b8c3; color:#fff;}
-footer > ul[data-role] > li > button > i.icon {font-family:moimz; font-style:normal;}
-footer > ul[data-role] > li > button[data-tool=bold] > i.icon:before {content:"\ef13";}
-footer > ul[data-role] > li > button[data-tool=underline] > i.icon:before {content:"\ef14";}
-footer > ul[data-role] > li > button[data-tool=italic] > i.icon:before {content:"\ef15";}
-footer > ul[data-role] > li > button[data-tool=color] > i.icon:before {content:"\ef19";}
-footer > ul[data-role] > li > button[data-tool=emoticon] > i.icon:before {content:"\ef21";}
-footer > ul[data-role] > li > button[data-tool=file] > i.icon:before {content:"\ef28";}
 
+/**
+ * 툴목록
+ */
 footer > ul[data-role=lists] {bottom:30px; left:5px; border:1px solid #d8d8d9; background:#f6f6f6; border-radius:3px;}
 footer > ul[data-role=lists]:before {display:block; position:absolute; content:" "; border-top:6px solid #d8d8d9; border-left:6px solid transparent; border-right:6px solid transparent; left:5px; bottom:-6px;}
 footer > ul[data-role=lists]:after {display:block; position:absolute; content:" "; border-top:5px solid #f6f6f6; border-left:5px solid transparent; border-right:5px solid transparent; left:6px; bottom:-5px;}
@@ -150,6 +154,20 @@ footer > ul[data-role=lists] > li > button:hover {background:#fff; color:#222;}
 footer > ul[data-role=lists] > li > button.on {background:#fff; color:#222; color:#10b8c3; font-weight:bold;}
 footer > ul[data-role=lists] > li.separator {border-top:1px solid #d8d8d9; height:1px; background:#fff;}
 
+/**
+ * 기본툴
+ */
+footer > ul[data-role] > li > button > i.icon {font-family:moimz; font-style:normal;}
+footer > ul[data-role] > li > button[data-tool=bold] > i.icon:before {content:"\ef13";}
+footer > ul[data-role] > li > button[data-tool=underline] > i.icon:before {content:"\ef14";}
+footer > ul[data-role] > li > button[data-tool=italic] > i.icon:before {content:"\ef15";}
+footer > ul[data-role] > li > button[data-tool=color] > i.icon:before {content:"\ef19";}
+footer > ul[data-role] > li > button[data-tool=emoticon] > i.icon:before {content:"\ef21";}
+footer > ul[data-role] > li > button[data-tool=file] > i.icon:before {content:"\ef28";}
+
+/**
+ * 입력폼
+ */
 footer > div[data-role=input] {display:inline-block; width:calc(100% - 34px); vertical-align:bottom; box-sizing:border-box;}
 footer > div[data-role=input] > textarea {border:0; width:calc(100% - 35px); height:34px; padding:7px; line-height:20px; font-size:12px; vertical-align:middle; display:inline-block; box-sizing:border-box;}
 footer > div[data-role=input] > button {position:absolute; bottom:-1px; right:0; width:35px; height:35px; vertical-align:middle; border:0; background:#10b8c3; cursor:pointer; display:inline-block;}
@@ -302,14 +320,13 @@ section[data-tab=chat] > div[data-role=line] > div {width:100px; height:12px; li
  * 유저메뉴
  */
 ul[data-role=usermenus] {top:0; left:0; max-width:80%; border:1px solid #d8d8d9; background:#f6f6f6; border-radius:3px; box-shadow:1px 1px 2px rgba(0,0,0,0.1);}
-ul[data-role=usermenus] > li[data-role=nickname] {width:100%; height:30px; padding:0px 8px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; font-size:0; background:#10b8c3; color:#fff;}
+ul[data-role=usermenus] > li[data-role=nickname] {width:100%; height:30px; padding:0px 8px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; font-size:0; background:#10b8c3; color:#fff; box-sizing:border-box;}
 ul[data-role=usermenus] > li[data-role=nickname] > i {display:inline-block; vertical-align:middle;}
 ul[data-role=usermenus] > li[data-role=nickname] > i.status {width:10px; height:10px; margin:10px 7px 10px 3px; border-radius:50%; background:transparent; box-sizing:border-box; border:1px solid #fff;}
-ul[data-role=usermenus] > li[data-role=nickname] > i.mi-loading {font-size:12px; width:12px; height:12px; line-height:20px; margin:8px 6px 8px 2px; text-align:center; color:#fff;}
+ul[data-role=usermenus] > li[data-role=nickname] > i.mi-loading {font-size:12px; width:12px; height:12px; line-height:12px; margin:8px 6px 8px 2px; text-align:center; color:#fff;}
 ul[data-role=usermenus] > li[data-role=nickname] > i.online {background:#fff;}
 ul[data-role=usermenus] > li[data-role=nickname] > label {display:inline-block; width:calc(100% - 20px); height:30px; line-height:30px; font-size:12px; color:#fff; font-weight:bold; vertical-align:middle;}
 ul[data-role=usermenus] > li > button {width:100%; height:28px; border:0; background:transparent; cursor:pointer; text-align:left; font-size:12px; padding:0px 8px; box-sizing:border-box; color:#666; font-size:0;}
 ul[data-role=usermenus] > li > button:hover {background:#fff; color:#222;}
 ul[data-role=usermenus] > li > button > i.icon {width:16px; height:20px; margin:4px 4px 4px 0px; display:inline-block; vertical-align:middle;}
-ul[data-role=usermenus] > li > button > i.mi-loading {width:16px; height:20px; margin:4px 4px 4px 0px; display:inline-block; vertical-align:middle; font-size:12px; line-height:20px; text-align:center;}
 ul[data-role=usermenus] > li > button > span {display:inline-block; width:calc(100% - 20px); height:28px; line-height:28px; font-size:12px; vertical-align:middle;}
