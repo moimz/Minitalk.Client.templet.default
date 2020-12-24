@@ -188,6 +188,18 @@ footer > div[data-role=layers] > div[data-tool]:before {display:block; position:
 footer > div[data-role=layers] > div[data-tool]:after {display:block; position:absolute; content:" "; border-top:5px solid #f6f6f6; border-left:5px solid transparent; border-right:5px solid transparent; left:6px; bottom:-5px;}
 footer > div[data-role=layers] > div[data-tool=color] {border:1px solid #d8d8d9;}
 
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action] {background:linear-gradient(to bottom,#fff 0%,#f5f5f5 100%); border-bottom:1px solid #d8d8d9; color:#222; font-family:moimz;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action]:hover {background:#fff;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action=prev] {border-right:1px solid #d8d8d9;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action=prev]:before {content:"\e904";}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action=next] {border-left:1px solid #d8d8d9;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li > button[data-action=next]:before {content:"\e907";}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li[data-role=items] > button {padding:0px 8px; border-bottom:1px solid #d8d8d9; border-right:1px solid #d8d8d9;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li[data-role=items] > button:hover {background:#fff;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li[data-role=items] > button.on {border-bottom:1px solid #fff; background:#fff;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > ul[data-role=categories] > li[data-role=items] > button > span {font-size:12px; color:#222;}
+footer > div[data-role=layers] > div[data-tool=emoticon] > div[data-role=lists] {background:#fff; height:150px; overflow-y:auto; border-top:1px solid #d8d8d9; margin-top:-1px;}
+
 
 /**
  * 채팅탭
