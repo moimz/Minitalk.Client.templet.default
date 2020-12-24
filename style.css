@@ -340,5 +340,6 @@ ul[data-role=usermenus] > li[data-role=nickname] > i.online {background:#fff;}
 ul[data-role=usermenus] > li[data-role=nickname] > label {display:inline-block; width:calc(100% - 20px); height:30px; line-height:30px; font-size:12px; color:#fff; font-weight:bold; vertical-align:middle;}
 ul[data-role=usermenus] > li > button {width:100%; height:28px; border:0; background:transparent; cursor:pointer; text-align:left; font-size:12px; padding:0px 8px; box-sizing:border-box; color:#666; font-size:0;}
 ul[data-role=usermenus] > li > button:hover {background:#fff; color:#222;}
-ul[data-role=usermenus] > li > button > i.icon {width:16px; height:20px; margin:4px 4px 4px 0px; display:inline-block; vertical-align:middle;}
+ul[data-role=usermenus] > li > button > i {width:16px; height:20px; margin:4px 4px 4px 0px; display:inline-block; vertical-align:middle; font-size:12px; text-align:center; background-size:16px 16px; background-repeat:no-repeat; background-position:50% 50%; line-height:20px;}
+ul[data-role=usermenus] > li > button > i.icon {font-family:moimz;}
 ul[data-role=usermenus] > li > button > span {display:inline-block; width:calc(100% - 20px); height:28px; line-height:28px; font-size:12px; vertical-align:middle;}
