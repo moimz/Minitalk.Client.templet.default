@@ -325,7 +325,7 @@ section[data-tab=chat] > div[data-role=user].join {color:#308f2b;}
 section[data-tab=chat] > div[data-role=user].leave {color:#222; opacity:0.5;}
 
 section[data-tab=chat] > div[data-role=line] {border-top:1px dotted #ccc; margin:10px 5px 5px 5px; height:10px; position:relative;}
-section[data-tab=chat] > div[data-role=line] > div {width:100px; height:12px; line-height:12px; background:#fff; position:absolute; top:-6px; left:calc(50% - 50px); text-align:center; color:#666; font-size:11px;}
+section[data-tab=chat] > div[data-role=line] > div {width:120px; height:12px; line-height:12px; background:#fff; position:absolute; top:-6px; left:calc(50% - 50px); text-align:center; color:#666; font-size:11px;}
 
 
 /**
