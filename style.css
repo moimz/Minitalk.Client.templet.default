@@ -6,8 +6,8 @@
  * @file /templets/default/style.css
  * @author Arzz (arzz@arzz.com)
  * @license MIT License
- * @version 7.0.0
- * @modified 2020. 3. 23.
+ * @version 1.0.0
+ * @modified 2021. 1. 24.
  */
 div[data-role=frame] {border:1px solid #10b8c3; background:#fff;}
 
@@ -15,7 +15,8 @@ div[data-role=frame] {border:1px solid #10b8c3; background:#fff;}
  * 헤더
  */
 div[data-role=frame] > header {background:#10b8c3; height:40px; color:#fff;}
-div[data-role=frame] > header > h1 {display:inline-block; color:#fff; font-weight:bold; font-size:12px; height:40px; line-height:40px; vertical-align:middle; padding:0px 10px 0px 40px; background:url(./images/icon.png) no-repeat 10px 50%; background-size:20px 20px; max-width:calc(100% - 80px);}
+div[data-role=frame] > header > h1 {display:inline-block; color:#fff; font-weight:bold; font-size:12px; height:40px; line-height:40px; vertical-align:middle; padding:0px 10px 0px 10px; max-width:calc(100% - 80px);}
+div[data-role=frame] > header > h1:before {font-family:moimz; content:"\e802"; padding-right:5px; line-height:40px; font-size:16px; vertical-align:middle;}
 div[data-role=frame] > header > label[data-role=count] {display:inline-block; font-weight:normal; font-size:12px; height:40px; line-height:40px; vertical-align:middle; margin-left:-10px; padding-right:10px;}
 div[data-role=frame] > header > label[data-role=count]:before {content:"(";}
 div[data-role=frame] > header > label[data-role=count]:after {content:")";}
@@ -23,7 +24,21 @@ div[data-role=frame] > header > label[data-role=count]:empty {display:none;}
 
 
 /**
- * 탭바 스타일정의
+ * 헤더버튼 (v6)
+ */
+div[data-role=frame] > header > button[data-action] {border:1px solid rgba(255,255,255,0.6); background:rgba(255,255,255,0.1); border-radius:3px; width:20px; height:20px; cursor:pointer; position:absolute; top:10px; right:10px; font-family:moimz; font-size:14px; color:#fff; line-height:18px; text-align:center; font-weight:normal; box-sizing:border-box;}
+div[data-role=frame] > header > button[data-action]:hover {border-color:#fff; box-shadow:inset 0px 0px 1px 1px rgba(49,88,161,0.1); color:#fff;}
+div[data-role=frame] > header > button[data-action=configs] {right:34px; font-size:12px; line-height:18px;}
+div[data-role=frame] > header > button[data-action=configs]:before {content:"\ec35";}
+div[data-role=frame][data-type=vertical] > header > button[data-action=users]:before {content:"\e906";}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > header > button[data-action=users] {line-height:13px;}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > header > button[data-action=users]:before {content:"\e905";}
+div[data-role=frame][data-type=horizontal] > header > button[data-action=users]:before {content:"\e904";}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > button[data-action=users] {padding-left:1px;}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > button[data-action=users]:before {content:"\e907";}
+
+/**
+ * 탭바 (v7)
  */
 div[data-role=frame] > aside {background:#f4f4f4;}
 div[data-role=frame] > aside > ul[data-role=tabs] > li > button > label {background:rgba(0,0,0,0.8); color:#fff;}
@@ -37,7 +52,7 @@ div[data-role=frame] > aside.open > ul[data-role=tabs] > li > button[data-role=m
 
 
 /**
- * 가로형태 탭바
+ * 가로형태 탭바 (v7)
  */
 div[data-role=frame][data-tab-type=horizontal] > aside {width:100%; height:38px;}
 div[data-role=frame][data-tab-type=horizontal] > aside > ul[data-role=tabs] > li > button {border-bottom:1px solid #d8d8d9; border-left:1px solid #d8d8d9;}
@@ -49,7 +64,7 @@ div[data-role=frame][data-tab-type=horizontal] > aside.open > ul[data-role=tabs]
 
 
 /**
- * 세로형태 탭바
+ * 세로형태 탭바 (v7)
  */
 div[data-role=frame][data-tab-type=vertical] > aside {top:40px; right:0px; width:35px; height:calc(100% - 40px); border-left:1px solid #d8d8d9;}
 div[data-role=frame][data-tab-type=vertical] > aside > ul[data-role=tabs] > li {height:34px; padding:2px; box-sizing:border-box;}
@@ -81,19 +96,20 @@ div[data-role=frame][data-tab-type=none] > div[data-role=notifications] {top:45p
 
 /**
  * 메인섹션
+ * 헤더높이를 제외한다.
  */
-div[data-role=frame] > main {width:100%; height:calc(100% - 40px - 38px);}
+div[data-role=frame] > main {width:100%; height:calc(100% - 40px);}
 
 
 /**
- * 세로형태 탭바일 경우,
- * 메인영역의 가로크기를 세로형태 탭바영역만큼 줄이고, 세로크기를 가로형태 탭바 높이만큼 눌려준다.
+ * 탭바 위치에 따라 탭바너비, 탭바높이를 추가로 제외한다.
  * 채팅영역을 제외한 나머지 탭 영역의 최대 가로크기를 300px로 고정한다.
  */
-div[data-role=frame][data-tab-type=vertical] main {width:calc(100% - 35px); height:calc(100% - 40px);}
-div[data-role=frame][data-tab-type=vertical] main > section[data-role] {left:auto; right:0; background:#fff; border-left:1px solid #d8d8d9; max-width:300px; height:calc(100% - 35px); box-sizing:border-box;}
-div[data-role=frame][data-tab-type=vertical] main > section[data-role=chat] {border-left:0; max-width:none;}
-div[data-role=frame][data-tab-type=vertical] main > section[data-role=chat] {}
+div[data-role=frame][data-tab-type=horizontal] > main {width:100%; height:calc(100% - 40px - 38px);}
+div[data-role=frame][data-tab-type=vertical] > main {width:calc(100% - 35px); height:calc(100% - 40px);}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role] {left:auto; right:0; background:#fff; border-left:1px solid #d8d8d9; max-width:300px; height:calc(100% - 35px); box-sizing:border-box;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=chat] {border-left:0; max-width:none;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=chat] {}
 
 
 /**
@@ -155,137 +171,175 @@ div[data-role=frame] > footer > div[data-role=input] > button[disabled] > i {col
 /**
  * 툴바레이어
  */
+div[data-role=frame] > footer > div[data-role=layers] > div[data-tool] {margin-left:5px;}
 div[data-role=frame] > footer > div[data-role=layers] > div[data-tool]:before {display:block; position:absolute; content:" "; border-top:6px solid #d8d8d9; border-left:6px solid transparent; border-right:6px solid transparent; left:5px; bottom:-6px;}
 div[data-role=frame] > footer > div[data-role=layers] > div[data-tool]:after {display:block; position:absolute; content:" "; border-top:5px solid #f6f6f6; border-left:5px solid transparent; border-right:5px solid transparent; left:6px; bottom:-5px;}
 
 
 /**
- * 채팅탭
+ * 채팅섹션
+ * 채팅섹션의 경우, 푸터영역의 기본크기만큼 높이를 줄여준다.
  */
-section[data-role=chat] {height:calc(100% - 35px);} /* 채팅탭의 경우, 푸터영역의 기본크기만큼 높이를 줄여준다. */
-section[data-role=chat] > div[data-role] > div[data-role=photo] {float:left; width:34px; height:34px; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
-section[data-role=chat] > div[data-role] > div[data-role=nickname] {float:left; width:calc(100% - 50px); font-size:12px; font-weight:bold; height:16px; line-height:16px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; margin-top:3px;}
-section[data-role=chat] > button[data-action=history] {display:block; width:calc(100% - 10px); height:30px; margin:5px; border:1px solid #e5e5e5; color:#666; background:#f4f4f4; cursor:pointer; font-size:12px;}
+div[data-role=frame] > main > section[data-role=chat] {height:calc(100% - 35px);}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=photo] {float:left; width:34px; height:34px; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=nickname] {float:left; width:calc(100% - 50px); font-size:12px; font-weight:bold; height:16px; line-height:16px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; margin-top:3px;}
+div[data-role=frame] > main > section[data-role=chat] > button[data-action=history] {display:block; width:calc(100% - 10px); height:30px; margin:5px; border:1px solid #e5e5e5; color:#666; background:#f4f4f4; cursor:pointer; font-size:12px;}
+
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item] {margin:5px; -ms-word-break:break-all; word-wrap:break-word; -ms-user-select:auto; -moz-user-select:auto; -webkit-user-select:auto;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system {padding:5px; font-size:12px; line-height:1.4; text-align:justify;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.info {border:1px solid #18295b; background:#2847a0; color:#fff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.action {border:1px solid #236a1f; background:#308f2b; color:#fff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.error {border:1px solid #b82332; background:#d33948; color:#fff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.user {color:#666; margin:0px; padding:2px 5px;}
+
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] {margin:5px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message]:after {clear:both; content:""; display:block;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message].whisper {color:#ff00ff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message].log {opacity:0.5;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] {float:left; width:calc(100% - 50px); box-sizing:border-box;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] {margin:0px; font-size:12px; color:#222; line-height:1.6;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.text:after {content:"-"; color:#fff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time {color:#666; white-space:nowrap;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > time {display:none; font-size:10px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > time:before {content:"(";}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > time:after {content:")";}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > i.sending {color:#999; font-family:moimz; font-size:10px; font-style:normal;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > i.sending:before {content:"\ef17";}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > i.fail {color:#F44336; font-family:moimz; font-size:10px; font-style:normal;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=balloon] > span.time > i.fail:before {content:"\eb02";}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div:last-child > div > span.time > time {display:inline-block;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message].whisper > div[data-role=context] > div > div[data-role=balloon] {color:#ff00ff;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=file] {padding:5px 0px; max-width:300px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=file] > a {border:1px solid #ccc; color:#222; text-decoration:none; font-size:0;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=file] > a > i {display:block; float:left; width:30px; height:30px; margin:10px; vertical-align:middle;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=file] > a > b {display:block; width:calc(100% - 60px); height:20px; line-height:20px; font-size:12px; color:#222; margin:5px 10px 0px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=file] > a > p {display:block; width:calc(100% - 60px); height:20px; line-height:20px; font-size:12px; color:#666; margin:0px 10px 5px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] {padding:5px 0px; max-width:300px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] > a {border:1px solid #ccc; color:#222; text-decoration:none;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] > a > h4 {box-sizing:border-box; width:100%; padding:8px 8px 5px 8px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; font-size:12px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] > a > p {display:-webkit-box; padding:0px 8px 8px 8px; line-height:20px; min-height:20px; max-height:40px; overflow:hidden; white-space:normal; -webkit-line-clamp:2; text-overflow:ellipsis; -webkit-box-orient:vertical; color:#666; font-size:12px;}
+
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] {margin:5px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user]:after {clear:both; content:""; display:block;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] > div.box {float:left; width:calc(100% - 50px); box-sizing:border-box;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] > div.box > div > div {margin:0px; font-size:12px; line-height:1.6;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].join {color:#308f2b;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].leave {color:#222; opacity:0.5;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=line] {border-top:1px dotted #ccc; margin:10px 5px 5px 5px; height:10px; position:relative;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=line] > div {width:120px; height:12px; line-height:12px; background:#fff; position:absolute; top:-6px; left:calc(50% - 50px); text-align:center; color:#666; font-size:11px;}
 
 
 /**
- * 유저탭
+ * 유저섹션
  */
-section[data-role=users] > div[data-role=search] {width:100%; height:34px; border-bottom:1px solid #d8d8d9; box-shadow:0px 1px 3px rgba(0,0,0,0.1); font-size:0;}
-section[data-role=users] > div[data-role=search] > input {padding:5px 10px; width:calc(100% - 68px); height:34px; line-height:14px; box-sizing:border-box; font-size:12px; border:0; background:transparent; vertical-align:middle;}
-section[data-role=users] > div[data-role=search] > button {margin:0px; width:34px; height:34px; font-size:0; border:0; background:transparent; cursor:pointer; vertical-align:middle; border-left:1px solid #d8d8d9; position:relative;}
-section[data-role=users] > div[data-role=search] > button > i {width:34px; height:34px; font-size:14px; font-family:moimz; color:#666; text-align:center; font-style:normal;}
-section[data-role=users] > div[data-role=search] > button > label {position:absolute; top:100%; padding:0px 8px; height:20px; background:rgba(0,0,0,0.8); line-height:20px; color:#fff; z-index:100; font-size:12px; white-space:nowrap; display:none;}
-section[data-role=users] > div[data-role=search] > button > label:before {position:absolute; border-bottom:5px solid rgba(0,0,0,0.8); border-left:5px solid transparent; border-right:5px solid transparent; content:" "; bottom:100%;}
-section[data-role=users] > div[data-role=search] > button:hover {background:#f4f4f4;}
-section[data-role=users] > div[data-role=search] > button:hover > i {color:#222;}
-section[data-role=users] > div[data-role=search] > button:hover > label {display:block;}
-section[data-role=users] > div[data-role=search] > button[data-action=search] > i:before {content:"\eb09";}
-section[data-role=users] > div[data-role=search] > button[data-action=search] > label {left:50%; transform:translateX(-50%);}
-section[data-role=users] > div[data-role=search] > button[data-action=search] > label:before {left:50%; margin-left:-5px;}
-section[data-role=users] > div[data-role=search] > button[data-action=refresh] > i:before {content:"\eb05"; font-size:16px;}
-section[data-role=users] > div[data-role=search] > button[data-action=refresh] > label {right:0;}
-section[data-role=users] > div[data-role=search] > button[data-action=refresh] > label:before {right:12px;}
-section[data-role=users] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
-section[data-role=users] > div[data-role=search] > button[disabled] > i {color:#ccc;}
-section[data-role=users] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
-section[data-role=users] > ul > li {display:block; font-size:0;}
-section[data-role=users] > ul > li > label[data-role=user] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
-section[data-role=users] > ul > li > label[data-role=user]:hover {background:#f4f4f4;}
-section[data-role=users] > ul > li > label[data-role=user] > i[data-role=photo] {display:block; width:34px; height:34px; float:left; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
-section[data-role=users] > ul > li > label[data-role=user] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:20px; line-height:20px; margin:7px 0px; color:#222;}
+div[data-role=frame] > main > section[data-role=users] {}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] {width:100%; height:34px; font-size:0; position:absolute;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > input {padding:5px 10px; width:calc(100% - 68px); height:34px; line-height:14px; box-sizing:border-box; font-size:12px; border:0; background:transparent; vertical-align:middle;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button {margin:0px; width:34px; height:34px; font-size:0; border:0; background:transparent; cursor:pointer; vertical-align:middle; border-left:1px solid #d8d8d9; position:relative;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button > i {width:34px; height:34px; font-size:14px; font-family:moimz; color:#666; text-align:center; font-style:normal;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button > label {position:absolute; padding:0px 8px; height:20px; background:rgba(0,0,0,0.8); line-height:20px; color:#fff; z-index:100; font-size:12px; white-space:nowrap; display:none;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button > label:before {position:absolute; border-left:5px solid transparent; border-right:5px solid transparent; content:" ";}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button:hover {background:#f4f4f4;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button:hover > i {color:#222;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button:hover > label {display:block;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=search] > i:before {content:"\eb09";}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=search] > label {left:50%; transform:translateX(-50%);}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=search] > label:before {left:50%; margin-left:-5px;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=refresh] > i:before {content:"\eb05"; font-size:16px;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=refresh] > label {right:0;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[data-action=refresh] > label:before {right:12px;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
+div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[disabled] > i {color:#ccc;}
+
+div[data-role=frame] > main > section[data-role=users] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
+div[data-role=frame] > main > section[data-role=users] > ul > li {display:block; font-size:0;}
+div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
+div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user]:hover {background:#f4f4f4;}
+div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] > i[data-role=photo] {display:block; width:34px; height:34px; float:left; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
+div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:20px; line-height:20px; margin:7px 0px; color:#222;}
+
+/**
+ * 유저섹션 가로/세로 형태에 따른 위치조절
+ */
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=users] > div[data-role=search] {top:0; left:0; border-bottom:1px solid #d8d8d9; box-shadow:0px 1px 3px rgba(0,0,0,0.1);}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=users] > div[data-role=search] > button > label {top:100%;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=users] > div[data-role=search] > button > label:before {border-bottom:5px solid rgba(0,0,0,0.8); bottom:100%;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=users] > ul {margin-top:35px;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=users] > div[data-role=search] {bottom:0; left:0; border-top:1px solid #d8d8d9; box-shadow:0px -1px 3px rgba(0,0,0,0.1);}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=users] > div[data-role=search] > button > label {bottom:100%;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=users] > div[data-role=search] > button > label:before {border-top:5px solid rgba(0,0,0,0.8);  top:100%;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=users] > ul {margin-bottom:35px;}
+
+/**
+ * 유저섹션 세로형태 (v6)
+ * 유저섹션이 활성화된 상태인 경우 채팅섹션의 크기를 유저섹션 크기만큼 조절한다.
+ */
+div[data-role=frame][data-type=vertical] > main > section[data-role=users] {width:100%; height:0; top:-1px; left:0; border-bottom:1px solid #10b8c3;}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > main > section[data-role=users] {height:100px;}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > main > section[data-role=chat] {height:calc(100% - 100px); top:100px;}
+
+/**
+ * 유저섹션 가로형태 (v6)
+ * 유저섹션이 활성화된 상태인 경우 채팅섹션의 크기를 유저섹션 크기만큼 조절한다.
+ */
+div[data-role=frame][data-type=horizontal] > main > section[data-role=users] {width:0; height:100%; left:auto; right:-1px; border-left:1px solid #10b8c3;}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > main > section[data-role=users] {width:140px;}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > main > section[data-role=chat] {width:calc(100% - 140px);}
 
 
 /**
- * 박스탭
+ * 박스섹션
  */
-section[data-role=boxes] > div[data-role=search] {width:100%; height:34px; border-bottom:1px solid #d8d8d9; box-shadow:0px 1px 3px rgba(0,0,0,0.1); font-size:0;}
-section[data-role=boxes] > div[data-role=search] > input {padding:5px 10px; width:calc(100% - 102px); height:34px; line-height:14px; box-sizing:border-box; font-size:12px; border:0; background:transparent; vertical-align:middle;}
-section[data-role=boxes] > div[data-role=search] > button {margin:0px; width:34px; height:34px; font-size:0; border:0; background:transparent; cursor:pointer; vertical-align:middle; border-left:1px solid #d8d8d9; position:relative;}
-section[data-role=boxes] > div[data-role=search] > button > i {width:34px; height:34px; font-size:14px; font-family:moimz; color:#666; text-align:center; font-style:normal;}
-section[data-role=boxes] > div[data-role=search] > button > label {position:absolute; top:100%; padding:0px 8px; height:20px; background:rgba(0,0,0,0.8); line-height:20px; color:#fff; z-index:100; font-size:12px; white-space:nowrap; display:none; text-align:center;}
-section[data-role=boxes] > div[data-role=search] > button > label:before {position:absolute; border-bottom:5px solid rgba(0,0,0,0.8); border-left:5px solid transparent; border-right:5px solid transparent; content:" "; bottom:100%;}
-section[data-role=boxes] > div[data-role=search] > button:hover {background:#f4f4f4;}
-section[data-role=boxes] > div[data-role=search] > button:hover > i {color:#222;}
-section[data-role=boxes] > div[data-role=search] > button:hover > label {display:block;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=search] > i:before {content:"\eb09";}
-section[data-role=boxes] > div[data-role=search] > button[data-action=search] > label {left:50%; transform:translateX(-50%);}
-section[data-role=boxes] > div[data-role=search] > button[data-action=search] > label:before {left:50%; margin-left:-5px;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > i:before {content:"\eb05"; font-size:16px;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label {left:50%; transform:translateX(-50%);}
-section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label:before {left:50%; margin-left:-5px;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create] {background:#2196F3; border-left-color:#1E88E5; height:35px;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create]:hover {background:#1E88E5;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i {color:#fff;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i:before {content:"\eb00"; font-size:16px;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create] > label {right:0;}
-section[data-role=boxes] > div[data-role=search] > button[data-action=create] > label:before {right:12px;}
-section[data-role=boxes] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
-section[data-role=boxes] > div[data-role=search] > button[disabled] > i {color:#ccc;}
-section[data-role=boxes] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
-section[data-role=boxes] > ul > li {display:block; font-size:0;}
-section[data-role=boxes] > ul > li > label[data-role=box] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
-section[data-role=boxes] > ul > li > label[data-role=box] > i.icon {display:block; width:34px; height:34px; float:left; margin-right:6px; border-radius:50%; box-sizing:border-box; border:1px solid #eee; line-height:32px;}
-section[data-role=boxes] > ul > li > label[data-role=box] > h6 {display:block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:16px; line-height:16px; color:#222; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:2px;}
-section[data-role=boxes] > ul > li > label[data-role=box] > h6 > i.secret {width:14px; font-size:0; display:inline-block; font-style:normal;}
-section[data-role=boxes] > ul > li > label[data-role=box] > h6 > i.secret:before {font-family:moimz; content:"\ec17"; color:#F44336; font-size:12px; font-weight:normal;}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] {display:inline-block; max-width:calc(100% - 100px); height:16px; line-height:16px; color:#666; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; vertical-align:middle; font-size:12px;}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] > i[data-role=photo] {display:block; width:16px; height:16px; float:left; margin-right:4px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 20px); height:16px; line-height:16px; color:#666;}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users] {max-width:80px; color:#666; font-size:12px; margin-left:5px; height:16px; line-height:16px; vertical-align:middle;}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users]:before {content:"(";}
-section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users]:after {content:")";}
+div[data-role=frame] > main > section[data-role=boxes] {}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] {width:100%; height:34px; font-size:0; position:absolute;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > input {padding:5px 10px; width:calc(100% - 102px); height:34px; line-height:14px; box-sizing:border-box; font-size:12px; border:0; background:transparent; vertical-align:middle;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button {margin:0px; width:34px; height:34px; font-size:0; border:0; background:transparent; cursor:pointer; vertical-align:middle; border-left:1px solid #d8d8d9; position:relative;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button > i {width:34px; height:34px; font-size:14px; font-family:moimz; color:#666; text-align:center; font-style:normal;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button > label {position:absolute; padding:0px 8px; height:20px; background:rgba(0,0,0,0.8); line-height:20px; color:#fff; z-index:100; font-size:12px; white-space:nowrap; display:none; text-align:center;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button > label:before {position:absolute; content:" "; border-left:5px solid transparent; border-right:5px solid transparent;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button:hover {background:#f4f4f4;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button:hover > i {color:#222;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button:hover > label {display:block;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=search] > i:before {content:"\eb09";}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=search] > label {left:50%; transform:translateX(-50%);}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=search] > label:before {left:50%; margin-left:-5px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > i:before {content:"\eb05"; font-size:16px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label {left:50%; transform:translateX(-50%);}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label:before {left:50%; margin-left:-5px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] {background:#2196F3; border-left-color:#1E88E5; height:35px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create]:hover {background:#1E88E5;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i {color:#fff;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i:before {content:"\eb00"; font-size:16px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > label {right:0;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > label:before {right:12px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[disabled] > i {color:#ccc;}
 
+div[data-role=frame] > main > section[data-role=boxes] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li {display:block; font-size:0;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > i.icon {display:block; width:34px; height:34px; float:left; margin-right:6px; border-radius:50%; box-sizing:border-box; border:1px solid #eee; line-height:32px;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > h6 {display:block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:16px; line-height:16px; color:#222; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:2px;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > h6 > i.secret {width:14px; font-size:0; display:inline-block; font-style:normal;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > h6 > i.secret:before {font-family:moimz; content:"\ec17"; color:#F44336; font-size:12px; font-weight:normal;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] {display:inline-block; max-width:calc(100% - 100px); height:16px; line-height:16px; color:#666; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; vertical-align:middle; font-size:12px;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] > i[data-role=photo] {display:block; width:16px; height:16px; float:left; margin-right:4px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=owner] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 20px); height:16px; line-height:16px; color:#666;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users] {max-width:80px; color:#666; font-size:12px; margin-left:5px; height:16px; line-height:16px; vertical-align:middle;}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users]:before {content:"(";}
+div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] > label[data-role=users]:after {content:")";}
 
 /**
- * 채팅메시지
+ * 박스섹션 가로/세로 형태에 따른 위치조절
  */
-section[data-role=chat] > div[data-role=item] {margin:5px; -ms-word-break:break-all; word-wrap:break-word; -ms-user-select:auto; -moz-user-select:auto; -webkit-user-select:auto;}
-section[data-role=chat] > div[data-role=item].system {padding:5px; font-size:12px; line-height:1.4; text-align:justify;}
-section[data-role=chat] > div[data-role=item].system.info {border:1px solid #18295b; background:#2847a0; color:#fff;}
-section[data-role=chat] > div[data-role=item].system.action {border:1px solid #236a1f; background:#308f2b; color:#fff;}
-section[data-role=chat] > div[data-role=item].system.error {border:1px solid #b82332; background:#d33948; color:#fff;}
-section[data-role=chat] > div[data-role=item].system.user {color:#666; margin:0px; padding:2px 5px;}
-section[data-role=chat] > div[data-role=message] {margin:5px;}
-section[data-role=chat] > div[data-role=message]:after {clear:both; content:""; display:block;}
-section[data-role=chat] > div[data-role=message] > div.box {float:left; width:calc(100% - 50px); box-sizing:border-box;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] {margin:0px; font-size:12px; color:#222; line-height:1.6;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.text:after {content:"-"; color:#fff;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time {color:#666; white-space:nowrap;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > time {display:none; font-size:10px;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > time:before {content:"(";}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > time:after {content:")";}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > i.sending {color:#999; font-family:moimz; font-size:10px; font-style:normal;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > i.sending:before {content:"\ef17";}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > i.fail {color:#F44336; font-family:moimz; font-size:10px; font-style:normal;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=normal] > span.time > i.fail:before {content:"\eb02";}
-section[data-role=chat] > div[data-role=message] > div.box > div:last-child > div > span.time > time {display:inline-block;}
-section[data-role=chat] > div[data-role=message].whisper {color:#ff00ff;}
-section[data-role=chat] > div[data-role=message].whisper > div.box > div > div[data-role=normal] {color:#ff00ff;}
-section[data-role=chat] > div[data-role=message].log {opacity:0.5;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=file] {padding:5px 0px; max-width:300px;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=file] > a {border:1px solid #ccc; color:#222; text-decoration:none; font-size:0;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=file] > a > i {display:block; float:left; width:30px; height:30px; margin:10px; vertical-align:middle;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=file] > a > b {display:block; width:calc(100% - 60px); height:20px; line-height:20px; font-size:12px; color:#222; margin:5px 10px 0px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=file] > a > p {display:block; width:calc(100% - 60px); height:20px; line-height:20px; font-size:12px; color:#666; margin:0px 10px 5px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=website] {padding:5px 0px; max-width:300px;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=website] > a {border:1px solid #ccc; color:#222; text-decoration:none;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=website] > a > h4 {box-sizing:border-box; width:100%; padding:8px 8px 5px 8px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; font-size:12px;}
-section[data-role=chat] > div[data-role=message] > div.box > div > div[data-role=website] > a > p {display:-webkit-box; padding:0px 8px 8px 8px; line-height:20px; min-height:20px; max-height:40px; overflow:hidden; white-space:normal; -webkit-line-clamp:2; text-overflow:ellipsis; -webkit-box-orient:vertical; color:#666; font-size:12px;}
-
-
-/**
- * 유저메시지
- */
-section[data-role=chat] > div[data-role=user] {margin:5px;}
-section[data-role=chat] > div[data-role=user]:after {clear:both; content:""; display:block;}
-section[data-role=chat] > div[data-role=user] > div.box {float:left; width:calc(100% - 50px); box-sizing:border-box;}
-section[data-role=chat] > div[data-role=user] > div.box > div > div {margin:0px; font-size:12px; line-height:1.6;}
-section[data-role=chat] > div[data-role=user].join {color:#308f2b;}
-section[data-role=chat] > div[data-role=user].leave {color:#222; opacity:0.5;}
-section[data-role=chat] > div[data-role=line] {border-top:1px dotted #ccc; margin:10px 5px 5px 5px; height:10px; position:relative;}
-section[data-role=chat] > div[data-role=line] > div {width:120px; height:12px; line-height:12px; background:#fff; position:absolute; top:-6px; left:calc(50% - 50px); text-align:center; color:#666; font-size:11px;}
-
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=boxes] > div[data-role=search] {top:0; left:0; border-bottom:1px solid #d8d8d9; box-shadow:0px 1px 3px rgba(0,0,0,0.1);}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=boxes] > div[data-role=search] > button > label {top:100%;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=boxes] > div[data-role=search] > button > label:before {border-bottom:5px solid rgba(0,0,0,0.8); bottom:100%;}
+div[data-role=frame][data-tab-type=vertical] > main > section[data-role=boxes] > ul {margin-top:35px;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > div[data-role=search] {bottom:0; left:0; border-top:1px solid #d8d8d9; box-shadow:0px -1px 3px rgba(0,0,0,0.1);}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > div[data-role=search] > button > label {bottom:100%;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > div[data-role=search] > button > label:before {border-top:5px solid rgba(0,0,0,0.8);  top:100%;}
+div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > ul {margin-bottom:35px;}
 
 /**
  * 유저메뉴
