@@ -26,16 +26,18 @@ div[data-role=frame] > header > label[data-role=count]:empty {display:none;}
 /**
  * 헤더버튼 (v6)
  */
-div[data-role=frame] > header > button[data-action] {border:1px solid rgba(255,255,255,0.6); background:rgba(255,255,255,0.1); border-radius:3px; width:20px; height:20px; cursor:pointer; position:absolute; top:10px; right:10px; font-family:moimz; font-size:14px; color:#fff; line-height:18px; text-align:center; font-weight:normal; box-sizing:border-box;}
-div[data-role=frame] > header > button[data-action]:hover {border-color:#fff; box-shadow:inset 0px 0px 1px 1px rgba(49,88,161,0.1); color:#fff;}
-div[data-role=frame] > header > button[data-action=configs] {right:34px; font-size:12px; line-height:18px;}
-div[data-role=frame] > header > button[data-action=configs]:before {content:"\ec35";}
-div[data-role=frame][data-type=vertical] > header > button[data-action=users]:before {content:"\e906";}
-div[data-role=frame][data-type=vertical][data-users=TRUE] > header > button[data-action=users] {line-height:13px;}
-div[data-role=frame][data-type=vertical][data-users=TRUE] > header > button[data-action=users]:before {content:"\e905";}
-div[data-role=frame][data-type=horizontal] > header > button[data-action=users]:before {content:"\e904";}
-div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > button[data-action=users] {padding-left:1px;}
-div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > button[data-action=users]:before {content:"\e907";}
+div[data-role=frame] > header > div[data-role=tabs] {position:absolute; top:0; right:0; width:60px; height:20px; padding:10px 10px; 0px 0px; text-align:right;}
+div[data-role=frame] > header > div[data-role=tabs] > button[data-action] {border:1px solid rgba(255,255,255,0.6); background:rgba(255,255,255,0.1); border-radius:3px; width:20px; height:20px; cursor:pointer; font-family:moimz; font-size:14px; color:#fff; line-height:18px; text-align:center; font-weight:normal; box-sizing:border-box; vertical-align:middle; margin-left:3px;}
+div[data-role=frame] > header > div[data-role=tabs] > button[data-action]:hover {border-color:#fff; box-shadow:inset 0px 0px 1px 1px rgba(49,88,161,0.1); color:#fff;}
+div[data-role=frame] > header > div[data-role=tabs] > button[data-action=configs] {font-size:12px; line-height:18px;}
+div[data-role=frame] > header > div[data-role=tabs] > button[data-action=configs]:before {content:"\ec35";}
+div[data-role=frame][data-type=vertical] > header > div[data-role=tabs] > button[data-action=users]:before {content:"\e906";}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > header > div[data-role=tabs] > button[data-action=users] {line-height:13px;}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > header > div[data-role=tabs] > button[data-action=users]:before {content:"\e905";}
+div[data-role=frame][data-type=horizontal] > header > div[data-role=tabs] > button[data-action=users]:before {content:"\e904";}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > div[data-role=tabs] > button[data-action=users] {padding-left:1px;}
+div[data-role=frame][data-type=horizontal][data-users=TRUE] > header > div[data-role=tabs] > button[data-action=users]:before {content:"\e907";}
+
 
 /**
  * 탭바 (v7)
@@ -92,6 +94,7 @@ div[data-role=frame][data-tab-type=horizontal] > aside > ul[data-role=lists] {to
 div[data-role=frame] > div[data-role=notifications] {top:80px;}
 div[data-role=frame][data-tab-type=vertical] > div[data-role=notifications] {top:45px;}
 div[data-role=frame][data-tab-type=none] > div[data-role=notifications] {top:45px;}
+div[data-role=frame][data-type] > div[data-role=notifications] {top:45px;}
 
 
 /**
@@ -191,6 +194,7 @@ div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].syst
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.action {border:1px solid #236a1f; background:#308f2b; color:#fff;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.error {border:1px solid #b82332; background:#d33948; color:#fff;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.user {color:#666; margin:0px; padding:2px 5px;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.plugin {background:#DA81F5; color:#fff;}
 
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] {margin:5px;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message]:after {clear:both; content:""; display:block;}
@@ -223,8 +227,9 @@ div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] {mar
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user]:after {clear:both; content:""; display:block;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] > div.box {float:left; width:calc(100% - 50px); box-sizing:border-box;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] > div.box > div > div {margin:0px; font-size:12px; line-height:1.6;}
-div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].join {color:#308f2b;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].join {color:#308f2b; opacity:0.7;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].leave {color:#222; opacity:0.5;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role=user].update {color:#308f2b;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=line] {border-top:1px dotted #ccc; margin:10px 5px 5px 5px; height:10px; position:relative;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=line] > div {width:120px; height:12px; line-height:12px; background:#fff; position:absolute; top:-6px; left:calc(50% - 50px); text-align:center; color:#666; font-size:11px;}
 
@@ -256,7 +261,7 @@ div[data-role=frame] > main > section[data-role=users] > ul > li {display:block;
 div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
 div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user]:hover {background:#f4f4f4;}
 div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] > i[data-role=photo] {display:block; width:34px; height:34px; float:left; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
-div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:20px; line-height:20px; margin:7px 0px; color:#222;}
+div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] > span[data-role=nickname] {display:inline-block; font-weight:bold; font-size:12px; max-width:calc(100% - 40px); height:20px; line-height:20px; margin:7px 0px; color:#222; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 
 /**
  * 유저섹션 가로/세로 형태에 따른 위치조절
@@ -276,15 +281,20 @@ div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=users]
  */
 div[data-role=frame][data-type=vertical] > main > section[data-role=users] {width:100%; height:0; top:-1px; left:0; border-bottom:1px solid #10b8c3;}
 div[data-role=frame][data-type=vertical][data-users=TRUE] > main > section[data-role=users] {height:100px;}
-div[data-role=frame][data-type=vertical][data-users=TRUE] > main > section[data-role=chat] {height:calc(100% - 100px); top:100px;}
+div[data-role=frame][data-type=vertical][data-users=TRUE] > main > section[data-role=chat] {height:calc(100% - 100px - 35px); margin-top:100px;}
 
 /**
  * 유저섹션 가로형태 (v6)
  * 유저섹션이 활성화된 상태인 경우 채팅섹션의 크기를 유저섹션 크기만큼 조절한다.
  */
+div[data-role=frame][data-type] > main > section[data-role=users] {background:#fff; z-index:1;}
+div[data-role=frame][data-type] > main > section[data-role=users] > ul {height:100%; margin-top:0; margin-bottom:0;}
 div[data-role=frame][data-type=horizontal] > main > section[data-role=users] {width:0; height:100%; left:auto; right:-1px; border-left:1px solid #10b8c3;}
 div[data-role=frame][data-type=horizontal][data-users=TRUE] > main > section[data-role=users] {width:140px;}
 div[data-role=frame][data-type=horizontal][data-users=TRUE] > main > section[data-role=chat] {width:calc(100% - 140px);}
+div[data-role=frame][data-type] > main > section[data-role=users] > ul > li > label[data-role=user] {display:block; width:100%; height:24px; padding:2px 4px; cursor:pointer; box-sizing:border-box;}
+div[data-role=frame][data-type] > main > section[data-role=users] > ul > li > label[data-role=user] > i[data-role=photo] {width:20px; height:20px;}
+div[data-role=frame][data-type] > main > section[data-role=users] > ul > li > label[data-role=user] > span[data-role=nickname] {max-width:calc(100% - 30px); height:20px; margin:0px;}
 
 
 /**
@@ -345,3 +355,11 @@ div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes]
  * 유저메뉴
  */
 ul[data-role=usermenus] {border-radius:3px; box-shadow:1px 1px 2px rgba(0,0,0,0.1);}
+
+
+/**
+ * 유저닉네임
+ */
+label[data-role=user] > span > i.admin {font-family:moimz; color:#FF9800; font-size:0;}
+label[data-role=user] > span > i.admin:before {content:"\ec33"; font-size:12px; padding:0px 2px;}
+label[data-role=user] > span > i.admin:after {content:"";}
