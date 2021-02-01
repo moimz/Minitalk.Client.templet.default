@@ -185,7 +185,7 @@ div[data-role=frame] > footer > div[data-role=layers] > div[data-tool]:after {di
  */
 div[data-role=frame] > main > section[data-role=chat] {height:calc(100% - 35px);}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=photo] {float:left; width:34px; height:34px; margin-right:6px; background-image:url(./images/nophoto.png); background-repeat:no-repeat; background-size:cover; background-position:50% 50%; border-radius:50%; box-sizing:border-box; border:1px solid #eee;}
-div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=nickname] {float:left; width:calc(100% - 50px); font-size:12px; font-weight:bold; height:20px; line-height:20px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=nickname] {float:left; width:calc(100% - 50px); height:20px; font-size:12px; font-weight:bold; line-height:20px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
 div[data-role=frame] > main > section[data-role=chat] > button[data-action=history] {display:block; width:calc(100% - 10px); height:30px; margin:5px; border:1px solid #e5e5e5; color:#666; background:#f4f4f4; cursor:pointer; font-size:12px;}
 
 /**
