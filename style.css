@@ -188,6 +188,9 @@ div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[dat
 div[data-role=frame] > main > section[data-role=chat] > div[data-role] > div[data-role=nickname] {float:left; width:calc(100% - 50px); font-size:12px; font-weight:bold; height:16px; line-height:16px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; margin-top:3px;}
 div[data-role=frame] > main > section[data-role=chat] > button[data-action=history] {display:block; width:calc(100% - 10px); height:30px; margin:5px; border:1px solid #e5e5e5; color:#666; background:#f4f4f4; cursor:pointer; font-size:12px;}
 
+/**
+ * 시스템메시지
+ */
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item] {margin:5px; -ms-word-break:break-all; word-wrap:break-word; -ms-user-select:auto; -moz-user-select:auto; -webkit-user-select:auto;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system {padding:5px; font-size:12px; line-height:1.4; text-align:justify;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.info {border:1px solid #18295b; background:#2847a0; color:#fff;}
@@ -196,6 +199,9 @@ div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].syst
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.user {color:#666; margin:0px; padding:2px 5px;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=item].system.plugin {background:#DA81F5; color:#fff;}
 
+/**
+ * 채팅메시지
+ */
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] {margin:5px;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message]:after {clear:both; content:""; display:block;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message].whisper {color:#ff00ff;}
@@ -223,6 +229,9 @@ div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] >
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] > a > h4 {box-sizing:border-box; width:100%; padding:8px 8px 5px 8px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; font-size:12px;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=message] > div[data-role=context] > div > div[data-role=website] > a > p {display:-webkit-box; padding:0px 8px 8px 8px; line-height:20px; min-height:20px; max-height:40px; overflow:hidden; white-space:normal; -webkit-line-clamp:2; text-overflow:ellipsis; -webkit-box-orient:vertical; color:#666; font-size:12px;}
 
+/**
+ * 유저메시지
+ */
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] {margin:5px;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user]:after {clear:both; content:""; display:block;}
 div[data-role=frame] > main > section[data-role=chat] > div[data-role=user] > div.box {float:left; width:calc(100% - 50px); box-sizing:border-box;}
@@ -256,6 +265,9 @@ div[data-role=frame] > main > section[data-role=users] > div[data-role=search] >
 div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
 div[data-role=frame] > main > section[data-role=users] > div[data-role=search] > button[disabled] > i {color:#ccc;}
 
+/**
+ * 유저목록
+ */
 div[data-role=frame] > main > section[data-role=users] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
 div[data-role=frame] > main > section[data-role=users] > ul > li {display:block; font-size:0;}
 div[data-role=frame] > main > section[data-role=users] > ul > li > label[data-role=user] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
@@ -316,7 +328,7 @@ div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] >
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > i:before {content:"\eb05"; font-size:16px;}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label {left:50%; transform:translateX(-50%);}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=refresh] > label:before {left:50%; margin-left:-5px;}
-div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] {background:#2196F3; border-left-color:#1E88E5; height:35px;}
+div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] {background:#2196F3; border-left-color:#1E88E5;}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create]:hover {background:#1E88E5;}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i {color:#fff;}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[data-action=create] > i:before {content:"\eb00"; font-size:16px;}
@@ -325,6 +337,9 @@ div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] >
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[disabled] {cursor:not-allowed; background:#f4f4f4 !important;}
 div[data-role=frame] > main > section[data-role=boxes] > div[data-role=search] > button[disabled] > i {color:#ccc;}
 
+/**
+ * 박스목록
+ */
 div[data-role=frame] > main > section[data-role=boxes] > ul {list-style:none; display:block; width:100%; height:calc(100% - 35px); padding:4px 0px; box-sizing:border-box; overflow-x:hidden; overflow-y:scroll;}
 div[data-role=frame] > main > section[data-role=boxes] > ul > li {display:block; font-size:0;}
 div[data-role=frame] > main > section[data-role=boxes] > ul > li > label[data-role=box] {display:block; width:100%; height:42px; padding:4px 8px; cursor:pointer; box-sizing:border-box;}
@@ -350,6 +365,7 @@ div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes]
 div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > div[data-role=search] > button > label {bottom:100%;}
 div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > div[data-role=search] > button > label:before {border-top:5px solid rgba(0,0,0,0.8);  top:100%;}
 div[data-role=frame][data-tab-type=horizontal] > main > section[data-role=boxes] > ul {margin-bottom:35px;}
+
 
 /**
  * 유저메뉴
